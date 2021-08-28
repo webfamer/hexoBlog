@@ -35,28 +35,28 @@ docker rm $(docker ps -a -q) // remove删除所有容器
 ```shell
 version: "3"
 services:
-qinglong:
-image: whyour/qinglong:latest
-container_name: qinglong
-restart: unless-stopped
-tty: true
-ports:
-- 5700:5700
-- 5701:5701
-environment:
-- ENABLE_HANGUP=true
-- ENABLE_WEB_PANEL=true
-volumes:
-- ./config:/ql/config
-- ./log:/ql/log
-- ./db:/ql/db
-- ./repo:/ql/repo
-- ./raw:/ql/raw
-- ./scripts:/ql/scripts
-- ./jbot:/ql/jbot
-- ./ninja:/ql/ninja
-labels:
-- com.centurylinklabs.watchtower.enable=false
+  qinglong:
+    image: whyour/qinglong:latest
+    container_name: qinglong
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 5700:5700
+      - 5701:5701
+    environment:
+      - ENABLE_HANGUP=true
+      - ENABLE_WEB_PANEL=true
+    volumes:
+      - ./config:/ql/config
+      - ./log:/ql/log
+      - ./db:/ql/db
+      - ./repo:/ql/repo
+      - ./raw:/ql/raw
+      - ./scripts:/ql/scripts
+      - ./jbot:/ql/jbot
+      - ./ninja:/ql/ninja
+    labels:
+      - com.centurylinklabs.watchtower.enable=false
 ```
 run模式
 ```shell
@@ -125,3 +125,18 @@ pm2 start
 ```shell
 pm2 start
 ``` 
+
+
+> nanjia扫码修复  
+1、ssh连接或进入容器：sudo docker exec -it QL bash ##进入青龙容器，QL为容器名称，根据自己
+2、cd /ql/ninja/backend ##进入ninja后端文件夹
+3、cp .env.example .env
+4、vi .env
+5、vi就是编辑，进入后按”i”编辑
+a、复制：NINJA_UA="user_agent: Mozilla/5.0(iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9(KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5 UCBrowser/13.4.2.1122"
+b、找到：NINJA_UA=””
+c、然后把光标通过上下左右键移动到第二个冒号上，然后点鼠标右键进行粘贴
+d、粘贴完成后，按ESC键退出编辑状态
+e、然后在最下面手输（不要复制粘贴）：(:wq回车)
+f、可以使用 vi .env 重新打开编辑查看一下是否编辑保存成功。
+g、pm2 start 重启服务
