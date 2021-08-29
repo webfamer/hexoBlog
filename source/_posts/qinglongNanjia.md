@@ -1,7 +1,10 @@
 ---
 title: '青龙+nanjia扫码教程'
 date: 2021-08-23 10:30:46
+categories:
+- Docker
 tags:
+- Docker
 ---
 
 

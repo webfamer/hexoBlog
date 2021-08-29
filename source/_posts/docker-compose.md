@@ -1,7 +1,10 @@
 ---
 title: CenterOS docker源的方式的安装以及docker-compose加速安装
 date: 2021-08-27 15:10:37
+categories:
+- Docker
 tags:
+- Docker
 ---
 问题解决
 在以下安装命令执行过程中，出现Another app is currently holding the yum lock; waiting for it to exit… 的问题。均可执行以下命令去解决。

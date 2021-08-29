@@ -1,7 +1,10 @@
 ---
 title: large-screen
 date: 2021-08-24 17:16:59
+categories:
+- 前端
 tags:
+- Vue
 ---
 # 大屏适配解决方案
 ## 背景

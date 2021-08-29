@@ -1,7 +1,10 @@
 ---
 title: '部署青龙面板+自助扫码'
 date: 2021-08-23 10:30:46
+categories:
+- Docker
 tags:
+- Docker
 ---
 
 > 已CentOS为例
